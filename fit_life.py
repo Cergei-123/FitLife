@@ -7,7 +7,7 @@ num_0 = input("Введите, как вас зовут: ")
 while True:
     try:
         num_1 = int(input("Введите день рождения: "))
-        if not(1 <= num_1 <= 31):
+        if not (1 <= num_1 <= 31):
             print("День должен быть от 1 до 31. Попробуйте ещё раз.")
             continue
         break
@@ -18,7 +18,7 @@ while True:
 while True:
     try:
         num_2 = int(input("Введите месяц рождения: "))
-        if not(1 <= num_2 <= 12):
+        if not (1 <= num_2 <= 12):
             print("Месяц должен быть от 1 до 12. Попробуйте ещё раз.")
             continue
         break
@@ -29,7 +29,7 @@ while True:
 while True:
     try:
         weight_kg = float(input("Введите свой вес (кг): "))
-        if weight_kg<= 0:
+        if weight_kg <= 0:
             print("Вес должен быть положительным числом. Попробуйте ещё раз.")
             continue
         break
@@ -57,7 +57,7 @@ print("Рост:", height_cm, "см")
 
 # Функция расчёта ИМТ
 def body_mass_index(weight_kg, height_cm):
-    if weight_kg<=0 or height_cm<=0:
+    if weight_kg <=0 or height_cm <=0:
         return None, "Ошибка: вес и рост должны быть положительными числами."
     height_m = height_cm/100.0
     bmi = weight_kg/(height_m**2)
@@ -84,7 +84,7 @@ if bmi is not None:
     print("Ваш ИМТ:",bmi)
     print("Категория:", category)
     water_needed = water_requirement_assessment(weight_kg)
-    print("Рекомендуемая норма воды:", water_needed,"л")
+    print("Рекомендуемая норма воды:",water_needed,"л")
 else:
     print("Не удалось рассчитать ИМТ из-за некорректных данных.")
     print(category)
