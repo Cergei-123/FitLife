@@ -55,8 +55,13 @@ print("Вес:", weight_kg, "кг")
 print("Рост:", height_cm, "см")
 
 
-# Функция расчёта ИМТ
+# Функция расчёта индекса массы тела
 def body_mass_index(weight_kg, height_cm):
+    """
+    Рассчитывает ИМТ и категорию по классификации ВОЗ.
+
+    Возвращает кортеж (bmi_rounded, category) или (None, error_message).
+    """
     if weight_kg <= 0 or height_cm <= 0:
         return None, "Ошибка: вес и рост должны быть положительными числами."
     height_m = height_cm / 100.0
@@ -73,7 +78,7 @@ def body_mass_index(weight_kg, height_cm):
         category = "Ожирение."
     return bmi_rounded, category
 
-#расчет потребления воды
+# расчет потребления воды
 def water_requirement_assessment(weight_kg):
     water_ml = weight_kg * 30
     return water_ml / 1000
@@ -82,7 +87,7 @@ def water_requirement_assessment(weight_kg):
 bmi, category = body_mass_index(weight_kg, height_cm)
 if bmi is not None:
 
-    
+
     print("Ваш ИМТ:", bmi)
     print("Категория:", category)
     water_needed = water_requirement_assessment(weight_kg)
