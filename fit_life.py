@@ -89,11 +89,9 @@ def water_requirement_assessment(weight_kg):
     water_ml = weight_kg * 30
     return water_ml / 1000
 
-
 # Расчёт ИМТ
 bmi, category = body_mass_index(weight_kg, height_cm)
 if bmi is not None:
-
 
 
     print("Ваш ИМТ:", bmi)
