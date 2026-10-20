@@ -7,7 +7,7 @@ num_0 = input("Введите, как вас зовут: ")
 while True:
     try:
         num_1 = int(input("Введите день рождения: "))
-        if not(1<=num_1<=31):
+        if not(1 <= num_1 <= 31):
             print("День должен быть от 1 до 31. Попробуйте ещё раз.")
             continue
         break
@@ -18,7 +18,7 @@ while True:
 while True:
     try:
         num_2 = int(input("Введите месяц рождения: "))
-        if not(1<=num_2<=12):
+        if not(1 <= num_2 <= 12):
             print("Месяц должен быть от 1 до 12. Попробуйте ещё раз.")
             continue
         break
@@ -59,15 +59,15 @@ print("Рост:", height_cm, "см")
 def body_mass_index(weight_kg, height_cm):
     if weight_kg<=0 or height_cm<=0:
         return None, "Ошибка: вес и рост должны быть положительными числами."
-    height_m = height_cm / 100.0
-    bmi = weight_kg / (height_m ** 2)
+    height_m = height_cm/100.0
+    bmi = weight_kg/(height_m**2)
     bmi_rounded = round(bmi, 2)
 
-    if bmi<18.5:
+    if bmi < 18.5:
         category = "Недостаточная масса тела."
-    elif 18.5<=bmi<24.9:
+    elif 18.5 <= bmi < 24.9:
         category = "Нормальная масса тела."
-    elif 25.0<=bmi<29.9:
+    elif 25.0 <= bmi < 29.9:
         category = "Избыточная масса тела (предожирение)."
     else:
         category = "Ожирение."
@@ -75,7 +75,7 @@ def body_mass_index(weight_kg, height_cm):
 
 
 def water_requirement_assessment(weight_kg):
-    water_ml = weight_kg * 30
+    water_ml = weight_kg*30
     return water_ml / 1000
 
 # Расчёт ИМТ
