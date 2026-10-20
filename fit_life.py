@@ -94,7 +94,6 @@ def water_requirement_assessment(weight_kg):
 bmi, category = body_mass_index(weight_kg, height_cm)
 if bmi is not None:
 
-
     print("Ваш ИМТ:", bmi)
     print("Категория:", category)
     water_needed = water_requirement_assessment(weight_kg)
