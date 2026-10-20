@@ -78,8 +78,14 @@ def body_mass_index(weight_kg, height_cm):
         category = "Ожирение."
     return bmi_rounded, category
 
+
 # расчет потребления воды
 def water_requirement_assessment(weight_kg):
+    """
+    Рассчитывает норму потребления воды.
+
+    Рассчитывает обьем в литрах.
+    """
     water_ml = weight_kg * 30
     return water_ml / 1000
 
