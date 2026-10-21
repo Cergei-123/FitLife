@@ -94,12 +94,17 @@ def water_requirement_assessment(weight_kg):
 bmi, category = body_mass_index(weight_kg, height_cm)
 if bmi is not None:
 
-    print("Ваш ИМТ:", bmi)
-    print("Категория:", category)
+    print(f"\nВаш ИМТ: {bmi}")
+    print(f"Категория: {category}")
+
     water_needed = water_requirement_assessment(weight_kg)
-    print("Рекомендуемая норма воды:", water_needed, "л")
+    print(f"Рекомендуемая норма воды: {water_needed} л")
 else:
-    print("Не удалось рассчитать ИМТ из-за некорректных данных.")
+    print("\nНе удалось рассчитать ИМТ из-за некорректных данных.")
     print(category)
 
-print("Расчет окончен. Будьте здоровы!")
+print("Расчёт окончен. Будьте здоровы!")
+
+
+
+
