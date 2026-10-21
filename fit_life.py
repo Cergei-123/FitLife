@@ -28,8 +28,8 @@ while True:
 # Ввод роста
 while True:
     try:
-        height_cm = float(input("Введите свой рост (см): "))
-        if height_cm <= 0:
+        height_m = float(input("Введите свой рост в метрах: "))
+        if height_m <= 0:
             print("Рост должен быть положительным числом. Попробуйте ещё раз.")
             continue
         break
@@ -40,19 +40,18 @@ print()
 print("Имя:", num_0)
 print("Ваш возрасат:", num_1)
 print("Вес:", weight_kg, "кг")
-print("Рост:", height_cm, "см")
+print("Рост:", height_m, "метров")
 
 
 # Функция расчёта индекса массы тела
-def body_mass_index(weight_kg, height_cm):
+def body_mass_index(weight_kg, height_m):
     """
     Рассчитывает ИМТ и категорию по классификации ВОЗ.
 
     Возвращает кортеж (bmi_rounded, category) или (None, error_message).
     """
-    if weight_kg <= 0 or height_cm <= 0:
+    if weight_kg <= 0 or height_m <= 0:
         return None, "Ошибка: вес и рост должны быть положительными числами."
-    height_m = height_cm / 100.0
     bmi = weight_kg / (height_m ** 2)
     bmi_rounded = round(bmi, 2)
 
@@ -79,10 +78,11 @@ def water_requirement_assessment(weight_kg):
 
 
 # Расчёт ИМТ
-bmi, category = body_mass_index(weight_kg, height_cm)
+bmi, category = body_mass_index(weight_kg, height_m)
 if bmi is not None:
 
-    print(f"\nВаш ИМТ: {bmi}")
+    print(f"Отчет для пользователя: {num_0}")
+    print(f"\nТвой Индекс Массы Тела: {bmi}")
     print(f"Категория: {category}")
 
     water_needed = water_requirement_assessment(weight_kg)
