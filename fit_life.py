@@ -19,8 +19,8 @@ while True:
             )
             confirm = input().strip().lower()
             if confirm != "да":
-                print("Расчёт отменён. Обратитесь к врачу.")
-                
+                print("Расчёт отменён. Обратитесь к врачу.")           
+            
             continue
         break
     except ValueError:
@@ -30,7 +30,7 @@ while True:
 while True:
     try:
         weight_kg = float(input("Введите свой вес (кг): "))
-        if weight_kg < 30 or weight_kg >250:
+        if weight_kg < 30 or weight_kg > 250:
             print(
                 f"Ошибка: вес должен быть в диапазоне от 30 до 250 кг."
                 f"Вы ввели: {weight_kg} кг. Попробуйте ещё раз.",
@@ -47,7 +47,7 @@ while True:
         if height_m < 0.5 or height_m > 2.5:
             print(
                 f"Ошибка рост должен быть в диапиазоне от 0.5 до 2.5 м."
-                f"Ds ddtkb {height_m} м. Попробуйте еще раз."
+                f"Ds ddtkb {height_m} м. Попробуйте еще раз.",
             )
             continue
         break
