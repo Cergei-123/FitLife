@@ -31,19 +31,25 @@ while True:
 while True:
     try:
         weight_kg = float(input("Введите свой вес (кг): "))
-        if weight_kg <= 0:
-            print("Вес должен быть положительным числом. Попробуйте ещё раз.")
+        if weight_kg < 30 or weight_kg >250:
+            print(
+                f"Ошибка: вес должен быть в диапазоне от 30 до 250 кг."
+                f"Вы ввели: {weight_kg} кг. Попробуйте ещё раз."
+            )
             continue
         break
     except ValueError:
-        print("Ошибка: нужно ввести число. Попробуйте ещё раз.")
-
+        print("Ошибка: нужно ввести число (можно с дробной частью). Попробуйте ещё раз.")
+            
 # Ввод роста
 while True:
     try:
         height_m = float(input("Введите свой рост в метрах: "))
-        if height_m <= 0:
-            print("Рост должен быть положительным числом. Попробуйте ещё раз.")
+        if height_m < 0.5 or height_m > 2.5:
+            print(
+                f"Ошибка рост должен быть в диапиазоне от 0.5 до 2.5 м."
+                f"Ds ddtkb {height_m} м. Попробуйте еще раз."
+            )
             continue
         break
     except ValueError:
@@ -80,28 +86,26 @@ def body_mass_index(weight_kg, height_m):
 
 
 # расчет потребления воды
+WATER_ML_PER_KG = 30
 def water_requirement_assessment(weight_kg):
     """
     Рассчитывает норму потребления воды.
 
     Рассчитывает обьем в литрах.
     """
-    water_ml = weight_kg * 30
+    water_ml = weight_kg * WATER_ML_PER_KG
     return water_ml / 1000
 
 
 # Расчёт ИМТ
 bmi, category = body_mass_index(weight_kg, height_m)
+
 if bmi is not None:
-
-    print(f"Отчет для пользователя: {num_0}")
-    print(f"\nТвой Индекс Массы Тела: {bmi}")
-    print(f"Категория: {category}")
-
+    print(f"Отчёт для пользователя: возраст, {num_1}")
+    print(f"ИМТ: {bmi:.2f} | Категория: {category}")
     water_needed = water_requirement_assessment(weight_kg)
-    print(f"Рекомендуемая норма воды: {water_needed} л")
+    print(f"Норма воды: {water_needed:.2f} л")
 else:
-    print("\nНе удалось рассчитать ИМТ из-за некорректных данных.")
-    print(category)
+    print("Не удалось рассчитать ИМТ из‑за некорректных данных.")
 
 print("Расчёт окончен. Будьте здоровы!")
