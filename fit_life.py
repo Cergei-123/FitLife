@@ -81,7 +81,6 @@ def body_mass_index(weight_kg, height_m):
         category = "Избыточная масса тела (предожирение)."
     else:
         category = "Ожирение."
-    #return bmi_rounded, category
     return dmi, category
 
 
