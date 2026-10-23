@@ -81,7 +81,7 @@ def body_mass_index(weight_kg, height_m):
         category = "Избыточная масса тела (предожирение)."
     else:
         category = "Ожирение."
-    return dmi, category
+    return bmi_rounded, category
 
 
 # расчет потребления воды
