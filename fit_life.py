@@ -19,8 +19,8 @@ while True:
             )
             confirm = input().strip().lower()
             if confirm != "да":
-                print("Расчёт отменён. Обратитесь к врачу.")           
-            
+                print("Расчёт отменён. Обратитесь к врачу.")
+
             continue
         break
     except ValueError:
@@ -86,6 +86,8 @@ def body_mass_index(weight_kg, height_m):
 
 # расчет потребления воды
 WATER_ML_PER_KG = 30
+
+
 def water_requirement_assessment(weight_kg):
     """
     Рассчитывает норму потребления воды.
