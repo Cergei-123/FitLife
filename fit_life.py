@@ -47,7 +47,7 @@ while True:
         if height_m < 0.5 or height_m > 2.5:
             print(
                 f"Ошибка рост должен быть в диапиазоне от 0.5 до 2.5 м."
-                f"Ds ddtkb {height_m} м. Попробуйте еще раз.",
+                f"{height_m} м. Попробуйте еще раз.",
             )
             continue
         break
