@@ -20,7 +20,7 @@ while True:
             confirm = input().strip().lower()
             if confirm != "да":
                 print("Расчёт отменён. Обратитесь к врачу.")
-
+                exit()
             continue
         break
     except ValueError:
