@@ -71,7 +71,7 @@ def body_mass_index(weight_kg, height_m):
     if weight_kg <= 0 or height_m <= 0:
         return None, "Ошибка: вес и рост должны быть положительными числами."
     bmi = weight_kg / (height_m ** 2)
-    bmi_rounded = round(bmi, 2)
+    #bmi_rounded = round(bmi, 2)
 
     if bmi < 18.5:
         category = "Недостаточная масса тела."
@@ -81,7 +81,7 @@ def body_mass_index(weight_kg, height_m):
         category = "Избыточная масса тела (предожирение)."
     else:
         category = "Ожирение."
-    return bmi_rounded, category
+    return bmi, category
 
 
 # расчет потребления воды
