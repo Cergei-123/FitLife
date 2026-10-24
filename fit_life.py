@@ -71,8 +71,7 @@ def body_mass_index(weight_kg, height_m):
     if weight_kg <= 0 or height_m <= 0:
         return None, "Ошибка: вес и рост должны быть положительными числами."
     bmi = weight_kg / (height_m ** 2)
-    #bmi_rounded = round(bmi, 2)
-
+    
     if bmi < 18.5:
         category = "Недостаточная масса тела."
     elif 18.5 <= bmi < 24.9:
