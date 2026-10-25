@@ -7,7 +7,7 @@ num_0 = input("Введите, как вас зовут: ")
 while True:
     try:
         num_1 = int(input("Введите, сколько вам лет: "))
-        if num_1 <= 0 or num_1 > 120:
+        if num_1 <= 0 or num_1 > 80:
             print("Пожалуйста, введите реалистичный возраст.")
             continue
 
@@ -30,7 +30,7 @@ while True:
 while True:
     try:
         weight_kg = float(input("Введите свой вес (кг): "))
-        if weight_kg < 30 or weight_kg > 250:
+        if weight_kg < 30 or weight_kg > 120:
             print(
                 f"Ошибка: вес должен быть в диапазоне от 30 до 250 кг."
                 f"Вы ввели: {weight_kg} кг. Попробуйте ещё раз.",
@@ -44,9 +44,9 @@ while True:
 while True:
     try:
         height_m = float(input("Введите свой рост в метрах: "))
-        if height_m < 0.5 or height_m > 2.5:
+        if height_m < 0.5 or height_m > 2:
             print(
-                f"Ошибка рост должен быть в диапиазоне от 0.5 до 2.5 м."
+                f"Ошибка рост должен быть в диапиазоне от 0.5 до 2 м."
                 f"{height_m} м. Попробуйте еще раз.",
             )
             continue
