@@ -60,10 +60,8 @@ print("Рост:", height_m, "метров")
 
 # Функция расчёта индекса массы тела
 def body_mass_index(weight_kg, height_m):
-    """ 
-       Рассчитывает ИМТ и категорию по классификации ВОЗ.
-       
-       Возвращает кортеж (bmi_rounded, category) или (None, error_message).
+    """
+    Расчитывает индекс массы тела.
     """
 
     bmi = weight_kg / (height_m ** 2)
