@@ -24,7 +24,7 @@ while True:
     try:
         weight_kg = float(input("Введите свой вес (кг): "))
         if not (30 <= weight_kg <= 120):
-            print(f"Ошибка: вес должен быть от 30 до 120 кг.")
+            print("Ошибка: вес должен быть от 30 до 120 кг.")
             continue
         break
     except ValueError:
@@ -35,7 +35,7 @@ while True:
     try:
         height_m = float(input("Введите свой рост в метрах: "))
         if not (0.5 <= height_m <= 2):
-            print(f"Ошибка: рост должен быть от 0.5 до 2 м.")
+            print("Ошибка: рост должен быть от 0.5 до 2 м.")
             continue
         break
     except ValueError:
@@ -50,6 +50,7 @@ print(f"Рост: {height_m} метров")
 
 # Функция: возвращает сразу bmi и категорию
 def get_bmi_and_category(weight_kg, height_m):
+    """Возвращает кортеж (ИМТ, категория) по классификации ВОЗ. """
     bmi = weight_kg / (height_m ** 2)
 
     if bmi < 18.5:
@@ -69,6 +70,6 @@ NUMBER = 1000
 water_needed_liters = (weight_kg * WATER_ML_PER_KG) / NUMBER
 
 print(f"\nОтчёт для пользователя: {name}")
-print(f"ИМТ: {bmi:.2f} ({category})")          
+print(f"ИМТ: {bmi:.2f} ({category})")
 print(f"Рекомендуемая норма воды: {water_needed_liters:.2f} л")
 print("Расчёт завершён. Будьте здоровы!")
