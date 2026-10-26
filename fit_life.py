@@ -1,97 +1,74 @@
-print("Привет! Это фитнес трекер.")
+print("Привет! Это фитнес-трекер.")
 
-# Сначала запрашиваем имя
-num_0 = input("Введите, как вас зовут: ")
+name = input("Введите, как вас зовут: ")
 
-# Запрос сколько лет
+# Возраст
 while True:
-    num_1 = input("Введите, сколько вам лет: ")
-    if num_1.isdigit() and 0 < int(num_1) <= 120:
-        num_1 = int(num_1)
-        break
+    age_input = input("Введите ваш возраст: ")
+    if age_input.isdigit():
+        age = int(age_input)
+        if 0 < age <= 120:
+            break
     print("Пожалуйста, введите реалистичный возраст (от 1 до 120).")
 
-# Проверка на целевую группу для ИМТ/воды
+# Проверка целевой группы
+if not (18 <= age <= 65):
+    print("Расчёт ИМТ предназначен для взрослых 18–65 лет.")
+    confirm = input("Вы всё равно хотите продолжить?").strip().lower()
+    if confirm != "да":
+        print("Расчёт отменён, обратитесь к врачу.")
+        exit()
 
-    if not (18 <= num_1 <= 65):
-        print("Расчёт ИМТ и нормы воды для взрослых 18 – 65 лет.")
-        confirm = input().strip().lower()
-        if confirm != "да":
-            print("Расчёт отменён. Обратитесь к врачу.")
-            exit()
-
-    break
-print("Ошибка: нужно ввести целое число. Попробуйте ещё раз.")
-
-# Ввод веса
+# Вес
 while True:
     try:
         weight_kg = float(input("Введите свой вес (кг): "))
-        if weight_kg < 30 or weight_kg > 120:
-            print(
-                f"Ошибка: вес должен быть в диапазоне от 30 до 120 кг."
-                f"Вы ввели: {weight_kg} кг. Попробуйте ещё раз.",
-            )
+        if not (30 <= weight_kg <= 120):
+            print(f"Ошибка: вес должен быть от 30 до 120 кг.")
             continue
         break
     except ValueError:
-        print("Ошибка: нужно ввести число. Попробуйте ещё раз")
+        print("Ошибка: нужно ввести число. Попробуйте ещё раз.")
 
-# Ввод роста
+# Рост
 while True:
     try:
         height_m = float(input("Введите свой рост в метрах: "))
-        if height_m < 0.5 or height_m > 2:
-            print(
-                f"Ошибка рост должен быть в диапиазоне от 0.5 до 2 м."
-                f"{height_m} м. Попробуйте еще раз.",
-            )
+        if not (0.5 <= height_m <= 2):
+            print(f"Ошибка: рост должен быть от 0.5 до 2 м.")
             continue
         break
     except ValueError:
         print("Ошибка: нужно ввести число. Попробуйте ещё раз.")
 
 print()
-print("Имя:", num_0)
-print("Ваш возраст:", num_1)
-print("Вес:", weight_kg, "кг")
-print("Рост:", height_m, "метров")
+print(f"Имя: {name}")
+print(f"Возраст: {age}")
+print(f"Вес: {weight_kg} кг")
+print(f"Рост: {height_m} метров")
 
 
-# Функция расчёта индекса массы тела
-def body_mass_index(weight_kg, height_m):
-    """Расчитывает индекс массы тела по классификации ВОЗ."""
+# Функция: возвращает сразу bmi и категорию
+def get_bmi_and_category(weight_kg, height_m):
     bmi = weight_kg / (height_m ** 2)
+
     if bmi < 18.5:
-        category = "Недостаточная масса тела."
-    elif 18.5 <= bmi < 24.9:
-        category = "Нормальная масса тела."
-    elif 25.0 <= bmi < 29.9:
-        category = "Избыточная масса тела (предожирение)."
-    else:
-        category = "Ожирение."
-    return bmi, category
+        return bmi, "Недостаточная масса тела."
+    if bmi < 25.0:
+        return bmi, "Нормальная масса тела."
+    if bmi < 30.0:
+        return bmi, "Избыточная масса тела (предожирение)."
+    return bmi, "Ожирение."
 
 
-# расчет потребления воды
+bmi, category = get_bmi_and_category(weight_kg, height_m)
+
+# Вода
 WATER_ML_PER_KG = 30
+NUMBER = 1000
+water_needed_liters = (weight_kg * WATER_ML_PER_KG) / NUMBER
 
-
-def water_requirement_assessment(weight_kg):
-    """
-    Рассчитывает норму потребления воды.
-
-    Рассчитывает обьем в литрах.
-    """
-    water_ml = weight_kg * WATER_ML_PER_KG
-    return water_ml / 1000
-
-
-# Расчёт ИМТ
-bmi, category = body_mass_index(weight_kg, height_m)
-water_needed = water_requirement_assessment(weight_kg)
-print(f"Отчет для пользователя: {num_0}")
-print(f"Возраст, {num_1}")
-print(f"ИМТ: {bmi:.2f} | Категория: {category}")
-print(f"Норма воды: {water_needed:.2f} л")
-print("Расчёт окончен. Будьте здоровы!")
+print(f"\nОтчёт для пользователя: {name}")
+print(f"ИМТ: {bmi:.2f} ({category})")          
+print(f"Рекомендуемая норма воды: {water_needed_liters:.2f} л")
+print("Расчёт завершён. Будьте здоровы!")
